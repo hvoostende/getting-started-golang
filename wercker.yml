@@ -1,4 +1,8 @@
-box: golang
+box:
+  id: golang
+  ports:
+    - "5000"
+
 dev:
   steps:
     - internal/watch:
@@ -25,3 +29,10 @@ build:
         name: go test
         code: |
           go test ./...
+
+hantest:
+  steps:
+    - script:
+        name: say something
+        code: |
+          echo "Han Rules"
