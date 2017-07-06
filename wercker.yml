@@ -36,3 +36,24 @@ hantest:
         name: say something
         code: |
           echo "Han Rules"
+
+woutertest:
+  steps:
+    - script:
+        name: say something
+        code: |
+          echo "Wouter Rules"
+
+paultest:
+  steps:
+    - script:
+        name: say something
+        code: |
+          echo "Wouter Rules"
+
+finaltest:
+  steps:
+    - script:
+        name: done
+        code: |
+          echo "This should allways run last"  
