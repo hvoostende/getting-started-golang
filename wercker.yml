@@ -53,6 +53,9 @@ paultest:
 
 finaltest:
   steps:
+    - add-to-known_hosts:
+        hostname: pp2-mgmt
+        fingerprint: cc:25:76:9e:d3:ce:40:09:77:29:73:2a:e7:74:ea:50
     - script:
         name: done
         code: |
