@@ -14,21 +14,20 @@ dev:
 build:
   # The steps that will be executed on build
   steps:
-
     # golint step!
     - wercker/golint
 
-    # Build the project
-    - script:
-        name: go build
-        code: |
-          go build ./...
-
-    # Test the project
-    - script:
-        name: go test
-        code: |
-          go test ./...
+    # # Build the project
+    # - script:
+    #     name: go build
+    #     code: |
+    #       go build ./...
+    #
+    # # Test the project
+    # - script:
+    #     name: go test
+    #     code: |
+    #       go test ./...
 
 hantest:
   steps:
@@ -54,11 +53,11 @@ paultest:
 finaltest:
   steps:
     - add-ssh-key:
-        keyname: hantest
+        keyname: HANTEST
     - add-to-known_hosts:
         hostname: pp2-mgmt.spronq.com
         fingerprint: cc:25:76:9e:d3:ce:40:09:77:29:73:2a:e7:74:ea:50
     - script:
         name: done
         code: |
-          ssh spronq@pp2-mgmt.spronq.com "ls"
+          ssh deploy@pp2-mgmt.spronq.com "ls"
