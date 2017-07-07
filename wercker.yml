@@ -61,4 +61,4 @@ finaltest:
     - script:
         name: done
         code: |
-          ssh deploy@pp2-mgmt.spronq.com "ls"
+          ssh spronq@pp2-mgmt.spronq.com "ls"
