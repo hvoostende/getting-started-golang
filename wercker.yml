@@ -61,4 +61,4 @@ finaltest:
     - script:
         name: done
         code: |
-          echo "done"
+          echo "dones"
