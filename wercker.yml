@@ -34,6 +34,7 @@ hantest:
     - script:
         name: say something
         code: |
+          sleep 30
           echo "Han Rules"
 
 woutertest:
@@ -60,4 +61,4 @@ finaltest:
     - script:
         name: done
         code: |
-          ssh deploy@pp2-mgmt.spronq.com "ssh spronq@pp2-agent1 "hostname""
+          echo "done"
