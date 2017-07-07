@@ -56,4 +56,6 @@ finaltest:
     - script:
         name: done
         code: |
-          echo "This should allways run last"  
+          ssh deploy@pp2-mgmt.spronq.com
+          ls
+          ssh spronq@pp2-agent1  
