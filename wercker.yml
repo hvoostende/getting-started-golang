@@ -52,8 +52,6 @@ paultest:
           echo "Wouter Rules"
 
 finaltest:
-  - maestrohealthcaretechnologies/wait-github-statuses:
-    - status_contexts: wercker/woutertest,wercker/hantest
   steps:
     - add-ssh-key:
         keyname: HANTEST
@@ -63,4 +61,4 @@ finaltest:
     - script:
         name: done
         code: |
-          echo "dones"
+          ssh deploy@pp2-mgmt.spronq.com "ssh spronq@pp2-agent1 "hostname""
