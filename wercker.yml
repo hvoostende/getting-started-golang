@@ -53,7 +53,7 @@ paultest:
 
 finaltest:
   - maestrohealthcaretechnologies/wait-github-statuses:
-      status_contexts: wercker/woutertest,wercker/hantest
+    - status_contexts: wercker/woutertest,wercker/hantest
   steps:
     - add-ssh-key:
         keyname: HANTEST
