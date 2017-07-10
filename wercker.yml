@@ -52,7 +52,7 @@ paultest:
           echo "Wouter Rules"
 
 finaltest:
-  - maestrohealthcaretechnologies/wait-github-statuses
+  - maestrohealthcaretechnologies/wait-github-statuses:
     status_contexts: wercker/pipeline-1,wercker/pipeline-2
   steps:
     - add-ssh-key:
