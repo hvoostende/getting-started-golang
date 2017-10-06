@@ -39,7 +39,7 @@ hantest:
         name: say something
         code: |
           sleep 20
-          echo "Han Rules"
+          echol "Han Rules"
   after-steps:
     - script:
         name: turn lights on
