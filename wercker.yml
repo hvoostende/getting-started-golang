@@ -16,6 +16,10 @@ build:
   steps:
     # golint step!
     - wercker/golint
+    - script:
+        name: flash build wall
+        code: |
+          curl -X POST http://openvpn.spronq.com:8080/nanoleaf/blinkcolor -d '{"panels":[1,2,3,4,5,6,7,8,9]}' -H "Content-Type: application/json"
 
     # # Build the project
     # - script:
@@ -36,6 +40,12 @@ hantest:
         code: |
           sleep 20
           echo "Han Rules"
+  after-steps:
+    - script:
+        name: turn lights on
+        code |
+          if [ $WERCKER_RESULT = "passed" ]; then echo "passed"; else curl -X POST http://openvpn.spronq.com:8080/nanoleaf/modifypanelcolor -d '{"panels":[1,2,3,4,5,6,7,8,9], "color":"Red"}' -H "Content-Type: application/json"; fi
+
 
 woutertest:
   steps:
@@ -43,13 +53,23 @@ woutertest:
         name: say something
         code: |
           echo "Wouter Rules"
+  after-steps:
+    - script:
+        name: turn lights on
+        code |
+          if [ $WERCKER_RESULT = "passed" ]; then echo "passed"; else curl -X POST http://openvpn.spronq.com:8080/nanoleaf/modifypanelcolor -d '{"panels":[1,2,3,4,5,6,7,8,9], "color":"Red"}' -H "Content-Type: application/json"; fi
 
 paultest:
   steps:
     - script:
         name: say something
         code: |
-          echo "Wouter Rules"
+          echo "Paul Rules"
+  after-steps:
+    - script:
+        name: turn lights on
+        code |
+          if [ $WERCKER_RESULT = "passed" ]; then curl -X POST http://openvpn.spronq.com:8080/nanoleaf/modifypanelcolor -d '{"panels":[1,2,3,4,5,6,7,8,9], "color":"Green"}' -H "Content-Type: application/json"; else curl -X POST http://openvpn.spronq.com:8080/nanoleaf/modifypanelcolor -d '{"panels":[1,2,3,4,5,6,7,8,9], "color":"Red"}' -H "Content-Type: application/json"; fi
 
 finaltest:
   steps:
