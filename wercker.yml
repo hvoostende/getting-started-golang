@@ -43,7 +43,7 @@ hantest:
   after-steps:
     - script:
         name: turn lights on
-        code |
+        code: |
           if [ $WERCKER_RESULT = "passed" ]; then echo "passed"; else curl -X POST http://openvpn.spronq.com:8080/nanoleaf/modifypanelcolor -d '{"panels":[1,2,3,4,5,6,7,8,9], "color":"Red"}' -H "Content-Type: application/json"; fi
 
 
